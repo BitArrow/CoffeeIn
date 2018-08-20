@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace UWP.Services.Interfaces
 {
-    public interface IAuthService
+    public interface IPasswordVaultService
     {
-        void LogOut();
-        Task Login();
-        Task Refresh();
+        void SaveTokens();
+        void LoadExistingTokens();
+        void RemoveExistingTokens();
     }
 }

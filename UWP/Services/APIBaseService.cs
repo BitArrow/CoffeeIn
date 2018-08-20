@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using UWP.DTO;
+using UWP.Extensions;
 using UWP.Services.Interfaces;
 
 namespace UWP.Services
@@ -16,15 +17,14 @@ namespace UWP.Services
     public class APIBaseService
     {
         private readonly HttpClient _httpClient;
-        private readonly IAuthService _authService;
+
 
         public APIBaseService()
         {
-            _authService = App.Container.GetRequiredService<IAuthService>();
-
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri(App.WebApiEndpoint);
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(App.AuthToken);
+            if (!string.IsNullOrEmpty(App.AuthToken))
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(App.AuthToken);
         }
 
         public async Task<T> GetAsync<T>(string requestUri)
@@ -46,9 +46,7 @@ namespace UWP.Services
             try
             {
                 await ValidateToken();
-                var json = JsonConvert.SerializeObject(body);
-                var stringBody = new StringContent(json, Encoding.UTF8, "application/json");
-                return await ReadContentAsync<T>(await _httpClient.PostAsync(requestUri, stringBody));
+                return await ReadContentAsync<T>(await _httpClient.PostAsync(requestUri, body.UrlEncode()));
             }
             catch (Exception ex)
             {
@@ -62,9 +60,7 @@ namespace UWP.Services
             try
             {
                 await ValidateToken();
-                var json = JsonConvert.SerializeObject(body);
-                var stringBody = new StringContent(json, Encoding.UTF8, "application/json");
-                return await ReadContentAsync<T>(await _httpClient.PutAsync(requestUri, stringBody));
+                return await ReadContentAsync<T>(await _httpClient.PutAsync(requestUri, body.UrlEncode()));
             }
             catch (Exception ex)
             {
@@ -104,17 +100,7 @@ namespace UWP.Services
 
         private async Task ValidateToken()
         {
-            //if (App.RefreshTokenExpires < DateTime.Now.AddSeconds(30))
-            //{
-            //    await _authService.LogOut();
-            //    await _authService.Login();
-            //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(App.AuthToken);
-            //}
-            //else if (App.BearerExpires.AddMinutes(1) < DateTime.Now)
-            //{
-            //    await _authService.Refresh();
-            //    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( App.AuthToken);
-            //}
+            // TODO add validation
         }
 
         public async Task<T> GetAsync<T>(Uri requestUri)

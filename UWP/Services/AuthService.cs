@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using UWP.DTO;
 using UWP.Services.Interfaces;
 
 namespace UWP.Services
 {
-    public class AuthService : IAuthService
+    public class AuthService : APIBaseService, IAuthService
     {
-        public Task LogOut()
+        public void LogOut()
         {
-            throw new NotImplementedException();
+            App.AuthToken = string.Empty;
         }
 
-        public Task Login()
+        public async Task Login()
         {
+            var login = new LoginRequestDto { Email = "email", Password = "password" };
+            var result = await PostAsync<LoginDto>("login", login);
             throw new NotImplementedException();
         }
 

@@ -34,6 +34,10 @@ namespace UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            RegisterServices();
+            var pwVault = new PasswordVaultService();
+            pwVault.LoadExistingTokens();
         }
 
         public static string WebServer => "http://coffeein.eu";
@@ -43,6 +47,7 @@ namespace UWP
         private static void RegisterServices()
         {
             var services = new ServiceCollection();
+            services.AddTransient<IPasswordVaultService, PasswordVaultService>();
             services.AddTransient<IAuthService, AuthService>();
             Container = services.BuildServiceProvider();
         }

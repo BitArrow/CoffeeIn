@@ -95,15 +95,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DTO\CoffeeShopLocationDto.cs" />
-    <Compile Include="DTO\CoffeeShopsDto.cs" />
-    <Compile Include="DTO\ErrorDto.cs" />
-    <Compile Include="DTO\LoginDto.cs" />
-    <Compile Include="DTO\MyProfileDto.cs" />
-    <Compile Include="DTO\ProductItemDto.cs" />
-    <Compile Include="DTO\ProductsDto.cs" />
-    <Compile Include="DTO\SpecialOfferDto.cs" />
-    <Compile Include="DTO\SpecialOfferItemDto.cs" />
+    <Compile Include="DTO\Request\LoginRequestDto.cs" />
+    <Compile Include="DTO\Response\CoffeeShopLocationDto.cs" />
+    <Compile Include="DTO\Response\CoffeeShopsDto.cs" />
+    <Compile Include="DTO\Response\ErrorDto.cs" />
+    <Compile Include="DTO\Response\LoginDto.cs" />
+    <Compile Include="DTO\Response\MyProfileDto.cs" />
+    <Compile Include="DTO\Response\ProductItemDto.cs" />
+    <Compile Include="DTO\Response\ProductsDto.cs" />
+    <Compile Include="DTO\Response\SpecialOfferDto.cs" />
+    <Compile Include="DTO\Response\SpecialOfferItemDto.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -111,6 +113,8 @@
     <Compile Include="Services\APIBaseService.cs" />
     <Compile Include="Services\AuthService.cs" />
     <Compile Include="Services\Interfaces\IAuthService.cs" />
+    <Compile Include="Services\Interfaces\IPasswordVaultService.cs" />
+    <Compile Include="Services\PasswordVaultService.cs" />
     <Compile Include="ViewModels\BaseVm.cs" />
     <Compile Include="ViewModels\MainPageVm.cs" />
   </ItemGroup>
