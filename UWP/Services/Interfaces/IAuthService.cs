@@ -9,7 +9,7 @@ namespace UWP.Services.Interfaces
     public interface IAuthService
     {
         void LogOut();
-        Task Login();
+        Task Login(string userName, string password);
         Task Refresh();
     }
 }

@@ -16,9 +16,9 @@ namespace UWP.Services
             App.AuthToken = string.Empty;
         }
 
-        public async Task Login()
+        public async Task Login(string userName, string password)
         {
-            var login = new LoginRequestDto { Email = "email", Password = "password" };
+            var login = new LoginRequestDto { Email = userName, Password = password };
             var result = await PostAsync<LoginDto>("login", login);
             throw new NotImplementedException();
         }

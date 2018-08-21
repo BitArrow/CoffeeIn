@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using UWP.Services;
 using UWP.Services.Interfaces;
+using UWP.Views;
 
 namespace UWP
 {
@@ -98,6 +99,19 @@ namespace UWP
 
                 // Event handler that is always activated when rootframe is navitaged
                 rootFrame.Navigated += RootFrame_Navigated;
+
+                ValidateLogin();
+            }
+        }
+
+        private void ValidateLogin()
+        {
+            if (string.IsNullOrEmpty(AuthToken))
+            {
+                if (Window.Current.Content is Frame rootFrame)
+                {
+                    rootFrame.Navigate(typeof(LoginView));
+                }
             }
         }
 
@@ -113,7 +127,9 @@ namespace UWP
         private void RootFrame_Navigated(object sender, NavigationEventArgs e)
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                Window.Current.Content is Frame rootFrame && rootFrame.CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+                Window.Current.Content is Frame rootFrame && rootFrame.CanGoBack && rootFrame.CurrentSourcePageType.Name != nameof(LoginView) ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+
+            ValidateLogin();
         }
 
         /// <summary>

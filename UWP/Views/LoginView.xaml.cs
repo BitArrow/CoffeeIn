@@ -12,31 +12,30 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Extensions.DependencyInjection;
-using UWP.Services;
-using UWP.Services.Interfaces;
+using UWP.ViewModels;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UWP
+namespace UWP.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LoginView : Page
     {
-        private IAuthService _authService;
+        private readonly LoginPageVm _vm;
 
-        public MainPage()
+        public LoginView()
         {
             this.InitializeComponent();
+            _vm = new LoginPageVm();
 
-            Loaded += MainPage_Loaded;
+            DataContext = _vm;
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            _authService = App.Container.GetRequiredService<IAuthService>();
+            var a = UserNameTb.Text;
         }
     }
 }
