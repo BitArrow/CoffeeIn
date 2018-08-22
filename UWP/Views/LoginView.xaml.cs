@@ -40,7 +40,7 @@ namespace UWP.Views
 
         private async void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (await _authService.Login(_vm.Username, _vm.Password))
+            if (await _authService.Login(_vm.Username, PasswordPb.Password))
             {
                 this.Frame.Navigate(typeof(MainPage));
             }

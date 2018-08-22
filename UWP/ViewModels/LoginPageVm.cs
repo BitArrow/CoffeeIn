@@ -9,7 +9,6 @@ namespace UWP.ViewModels
     public class LoginPageVm : BaseVm
     {
         private string _username;
-        private string _password;
 
         public string Username
         {
@@ -18,16 +17,6 @@ namespace UWP.ViewModels
             {
                 _username = value;
                 RaisePropertyChanged("Username");
-            }
-        }
-
-        public string Password
-        {
-            get => _password;
-            set
-            {
-                _password = value;
-                RaisePropertyChanged("Password");
             }
         }
     }

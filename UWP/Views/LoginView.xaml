@@ -52,7 +52,7 @@
                           Margin="0,0,10,0" 
                           HorizontalAlignment="Right"/>
                 <TextBox Name="UserNameTb" Grid.Row="0" Grid.Column="1" Text="{Binding Username, Mode=TwoWay}" PlaceholderText="Email" Margin="0,0,0,10"></TextBox>
-                <TextBox Name="PasswordTb" Grid.Row="1" Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" PlaceholderText="Password" Margin="0,0,0,10"></TextBox>
+                <PasswordBox Name="PasswordPb" Grid.Row="1" Grid.Column="1" PlaceholderText="Password" Margin="0,0,0,10" ></PasswordBox>
             </Grid>
 
             <Button Name="LoginBtn" HorizontalAlignment="Center" Click="LoginBtn_Click" Foreground="Black">Login
