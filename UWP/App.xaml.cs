@@ -111,6 +111,7 @@ namespace UWP
                 if (Window.Current.Content is Frame rootFrame)
                 {
                     rootFrame.Navigate(typeof(LoginView));
+                    rootFrame.BackStack.Clear();
                 }
             }
         }
@@ -121,6 +122,9 @@ namespace UWP
             {
                 frame.GoBack();
                 e.Handled = true;
+
+                if (frame.CurrentSourcePageType.Name == nameof(MainPage))
+                    frame.BackStack.Clear();
             }
         }
 

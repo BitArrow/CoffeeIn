@@ -10,7 +10,7 @@
 
     <Grid Background="DarkRed">
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBox Name="UserNameTb" Text="{Binding Username, Mode=TwoWay}">
+            <!--<TextBox Name="UserNameTb" Text="{Binding Username, Mode=TwoWay}">
                 <TextBox.Template>
                     <ControlTemplate>
                         <Grid>
@@ -33,8 +33,30 @@
                         </Grid>
                     </ControlTemplate>
                 </TextBox.Template>
-            </TextBox>
-            <Button Name="LoginBtn" HorizontalAlignment="Center" Click="LoginBtn_Click">Login</Button>
+            </TextBox>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*" MaxWidth="500"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE715;" Grid.Row="0" Grid.Column="0" 
+                          Margin="0,0,10,0" 
+                          HorizontalAlignment="Right"/>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8D7;" Grid.Row="1" Grid.Column="0"
+                          Margin="0,0,10,0" 
+                          HorizontalAlignment="Right"/>
+                <TextBox Name="UserNameTb" Grid.Row="0" Grid.Column="1" Text="{Binding Username, Mode=TwoWay}" PlaceholderText="Email" Margin="0,0,0,10"></TextBox>
+                <TextBox Name="PasswordTb" Grid.Row="1" Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" PlaceholderText="Password" Margin="0,0,0,10"></TextBox>
+            </Grid>
+
+            <Button Name="LoginBtn" HorizontalAlignment="Center" Click="LoginBtn_Click" Foreground="Black">Login
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

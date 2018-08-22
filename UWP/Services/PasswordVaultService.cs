@@ -11,7 +11,7 @@ namespace UWP.Services
 {
     public class PasswordVaultService : IPasswordVaultService
     {
-        private const string BearerTokenVaultKey = "apiKey";
+        private const string ApiKeyValue = "apiKey";
         private const int ElementNotFound = unchecked((int)0x80070490);
         private readonly PasswordVault _passwordVault;
 
@@ -28,9 +28,9 @@ namespace UWP.Services
                 {
                     EmptyVault();
 
-                    var bearer = new PasswordCredential(BearerTokenVaultKey, "", App.AuthToken);
+                    var authToken = new PasswordCredential(ApiKeyValue, ApiKeyValue, App.AuthToken);
 
-                    _passwordVault.Add(bearer);
+                    _passwordVault.Add(authToken);
                 }
                 catch (Exception ex)
                 {
@@ -47,14 +47,14 @@ namespace UWP.Services
         {
             try
             {
-                var bearer = _passwordVault.FindAllByResource(BearerTokenVaultKey).FirstOrDefault();
+                var authToken = _passwordVault.FindAllByResource(ApiKeyValue).FirstOrDefault();
 
-                if (bearer == null)
+                if (authToken == null)
                     return;
 
-                bearer.RetrievePassword();
+                authToken.RetrievePassword();
 
-                App.AuthToken = bearer.Password;
+                App.AuthToken = authToken.Password;
             }
             catch (Exception ex)
             {

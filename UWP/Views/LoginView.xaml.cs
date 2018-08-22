@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
+using UWP.Services;
+using UWP.Services.Interfaces;
 using UWP.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,18 +27,23 @@ namespace UWP.Views
     public sealed partial class LoginView : Page
     {
         private readonly LoginPageVm _vm;
+        private readonly IAuthService _authService;
 
         public LoginView()
         {
             this.InitializeComponent();
             _vm = new LoginPageVm();
+            _authService = App.Container.GetRequiredService<IAuthService>();
 
             DataContext = _vm;
         }
 
-        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        private async void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            var a = UserNameTb.Text;
+            if (await _authService.Login(_vm.Username, _vm.Password))
+            {
+                this.Frame.Navigate(typeof(MainPage));
+            }
         }
     }
 }

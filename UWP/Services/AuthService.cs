@@ -11,16 +11,27 @@ namespace UWP.Services
 {
     public class AuthService : APIBaseService, IAuthService
     {
-        public void LogOut()
+        private readonly IPasswordVaultService _passwordVaultService;
+
+        public AuthService()
         {
-            App.AuthToken = string.Empty;
+            _passwordVaultService = App.Container.GetRequiredService<IPasswordVaultService>();
         }
 
-        public async Task Login(string userName, string password)
+        public void LogOut()
         {
-            var login = new LoginRequestDto { Email = userName, Password = password };
+            _passwordVaultService.RemoveExistingTokens();
+        }
+
+        public async Task<bool> Login(string username, string password)
+        {
+            var login = new LoginRequestDto { Email = username, Password = password };
             var result = await PostAsync<LoginDto>("login", login);
-            throw new NotImplementedException();
+            
+            App.AuthToken = result.ApiKey;
+            _passwordVaultService.SaveTokens();
+
+            return !string.IsNullOrEmpty(result.ApiKey);
         }
 
         public Task Refresh()
