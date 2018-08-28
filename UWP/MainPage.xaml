@@ -5,10 +5,48 @@
     xmlns:local="using:UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid Background="DarkRed">
-        
+    <!-- UI Icons from: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="MenuBtn" Label="Menüü" Click="NavigationBtn_Click" >
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEA37;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="SpecialsBtn" Label="Eripakkumised" Click="NavigationBtn_Click" >
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE734;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="ProfileBtn" Label="Profiil" Click="NavigationBtn_Click" >
+                <AppBarButton.Icon>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
+                    </AppBarButton.Icon>
+            </AppBarButton>
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="LocationsBtn" Label="Kohvipoed" Click="NavigationBtn_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE707;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="SettingsBtn" Label="Sätted" Click="NavigationBtn_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE713;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="LogoutBtn" Label="Logi välja" Click="NavigationBtn_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8D7;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Frame x:Name="MainFrame"></Frame>
     </Grid>
 </Page>
