@@ -50,6 +50,7 @@ namespace UWP
             var services = new ServiceCollection();
             services.AddTransient<IPasswordVaultService, PasswordVaultService>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<ICoffeeService, CoffeeService>();
             Container = services.BuildServiceProvider();
         }
 

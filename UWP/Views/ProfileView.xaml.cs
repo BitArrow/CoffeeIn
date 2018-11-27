@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UWP.Services;
+using UWP.Services.Interfaces;
+using UWP.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -20,11 +23,17 @@ namespace UWP.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ProfilePage : Page
+    public sealed partial class ProfileView: Page
     {
-        public ProfilePage()
+        private readonly ProfileViewVm _vm;
+
+        public ProfileView()
         {
             this.InitializeComponent();
+            _vm = new ProfileViewVm();
+            _vm.LoadProfile();
+
+            DataContext = _vm;
         }
     }
 }

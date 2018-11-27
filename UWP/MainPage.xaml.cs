@@ -39,6 +39,7 @@ namespace UWP
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             _authService = App.Container.GetRequiredService<IAuthService>();
+            MainFrame.Navigate(typeof(ProfileView));
         }
 
         private void NavigationBtn_Click(object sender, RoutedEventArgs e)

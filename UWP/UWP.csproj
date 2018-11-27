@@ -112,17 +112,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\APIBaseService.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\CoffeeService.cs" />
     <Compile Include="Services\Interfaces\IAuthService.cs" />
+    <Compile Include="Services\Interfaces\ICoffeeService.cs" />
     <Compile Include="Services\Interfaces\IPasswordVaultService.cs" />
     <Compile Include="Services\PasswordVaultService.cs" />
     <Compile Include="ViewModels\BaseVm.cs" />
     <Compile Include="ViewModels\LoginPageVm.cs" />
     <Compile Include="ViewModels\MainPageVm.cs" />
+    <Compile Include="ViewModels\ProfileViewVm.cs" />
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProfilePage.xaml.cs">
-      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    <Compile Include="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +157,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProfilePage.xaml">
+    <Page Include="Views\ProfileView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

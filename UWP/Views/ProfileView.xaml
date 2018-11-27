@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="UWP.Views.ProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="DarkRed">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Foreground="White">Sinu konto jääk:</TextBlock>
+            <TextBlock Text="{Binding Profile.Kl_boonus}" FontSize="20" HorizontalAlignment="Center" Foreground="White"></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Foreground="White">Sinu tase hetkel:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0" Foreground="White" Text="{Binding Profile.Kl_taseh}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" Foreground="White">Sellel kuul oled ostnud:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" Foreground="White" Text="{Binding Profile.Kl_skost}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" Foreground="White">Järgmise kuu tase hetkel:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" Foreground="White" Text="{Binding Profile.Kl_tasej}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="3" Foreground="White">Järgmisest tasemest puudu:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" Text="{Binding Profile.Kl_jktp}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="4" Foreground="White">Viimane uuendus:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="4" Foreground="White" Text="{Binding Profile.Created_at}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="5" Foreground="White">E-klubikaardi nr:</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="5" Foreground="White" Text="{Binding Profile.Client_code}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
