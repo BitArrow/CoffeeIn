@@ -14,8 +14,8 @@
             <TextBlock Text="{Binding Profile.Kl_boonus}" FontSize="20" HorizontalAlignment="Center" Foreground="White"></TextBlock>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
+                    <ColumnDefinition ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -34,7 +34,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="3" Foreground="White">Järgmisest tasemest puudu:</TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="3" Foreground="White" Text="{Binding Profile.Kl_jktp}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="4" Foreground="White">Viimane uuendus:</TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="4" Foreground="White" Text="{Binding Profile.Created_at}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="4" Foreground="White" Text="{Binding Profile.Ts_bonus}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
                 <TextBlock Grid.Column="0" Grid.Row="5" Foreground="White">E-klubikaardi nr:</TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="5" Foreground="White" Text="{Binding Profile.Client_code}" Margin="5,0,0,0" FontWeight="Bold"></TextBlock>
             </Grid>
