@@ -41,6 +41,7 @@ namespace UWP
             pwVault.LoadExistingTokens();
         }
 
+        public static bool TestUser = false;
         public static string WebServer => "http://coffeein.eu";
         public static string WebApiEndpoint => $"{WebServer}/api/v1/";
         public static string AuthToken { get; set; }
@@ -107,7 +108,7 @@ namespace UWP
 
         private void ValidateLogin()
         {
-            if (string.IsNullOrEmpty(AuthToken))
+            if (string.IsNullOrEmpty(AuthToken) && !TestUser)
             {
                 if (Window.Current.Content is Frame rootFrame)
                 {

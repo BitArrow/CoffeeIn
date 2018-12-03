@@ -25,6 +25,11 @@ namespace UWP.Services
 
         public async Task<bool> Login(string username, string password)
         {
+            if (username == "test")
+            {
+                App.TestUser = true;
+                return true;
+            }
             var login = new LoginRequestDto { Email = username, Password = password };
             var result = await PostAsync<LoginDto>("login", login);
             

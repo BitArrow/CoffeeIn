@@ -69,6 +69,7 @@ namespace UWP.Services
         public void RemoveExistingTokens()
         {
             RemoveAllCredentials();
+            App.TestUser = false;
         }
 
         private void EmptyVault()

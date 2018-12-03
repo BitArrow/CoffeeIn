@@ -10,7 +10,7 @@
     <!-- UI Icons from: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Name="MenuBtn" Label="Menüü" Click="NavigationBtn_Click" >
+            <!--<AppBarButton x:Name="MenuBtn" Label="Menüü" Click="NavigationBtn_Click" >
                 <AppBarButton.Icon>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEA37;"/>
                 </AppBarButton.Icon>
@@ -24,10 +24,10 @@
                 <AppBarButton.Icon>
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE77B;"/>
                     </AppBarButton.Icon>
-            </AppBarButton>
+            </AppBarButton>-->
 
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="LocationsBtn" Label="Kohvipoed" Click="NavigationBtn_Click">
+                <!--<AppBarButton x:Name="LocationsBtn" Label="Kohvipoed" Click="NavigationBtn_Click">
                     <AppBarButton.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE707;"/>
                     </AppBarButton.Icon>
@@ -36,7 +36,7 @@
                     <AppBarButton.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE713;"/>
                     </AppBarButton.Icon>
-                </AppBarButton>
+                </AppBarButton>-->
                 <AppBarButton x:Name="LogoutBtn" Label="Logi välja" Click="NavigationBtn_Click">
                     <AppBarButton.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8D7;"/>
