@@ -42,7 +42,7 @@ namespace UWP
         }
 
         public static bool TestUser = false;
-        public static string WebServer => "http://coffeein.eu";
+        public static string WebServer => "https://coffeein.eu";
         public static string WebApiEndpoint => $"{WebServer}/api/v1/";
         public static string AuthToken { get; set; }
 
@@ -54,7 +54,7 @@ namespace UWP
             services.AddTransient<ICoffeeService, CoffeeService>();
             Container = services.BuildServiceProvider();
         }
-
+        
         public static IServiceProvider Container { get; private set; }
 
         /// <summary>
